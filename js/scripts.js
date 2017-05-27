@@ -47,8 +47,7 @@ function draw() {
   fill('#FFF');
 
   textSize(100 / 1000 * x);
-  text(
-    [floor(hou),
+  text([floor(hou),
     floor(min),
     floor(sec)
     ].map(function(n) { return ('0' + n).slice(-2) }).join(':'),
