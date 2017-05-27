@@ -37,7 +37,7 @@ gulp.task('jade', function() {
   ;
 });
 
-gulp.task('build', ['js', 'jade']);
+gulp.task('build', ['js', 'jade', 'static']);
 
 gulp.task('del', function() {
   return del.sync(dest);
@@ -48,8 +48,14 @@ gulp.task('deploy', ['del', 'build'], function() {
     .pipe(plugins.ghPages());
 });
 
+gulp.task('static', function () {
+  return gulp.src('static/*')
+    .pipe(gulp.dest(dest));
+});
+
 // Default task to be run with `gulp`
 gulp.task('default', ['del', 'browser-sync'], function() {
   gulp.watch('jade/*.jade', ['jade']);
   gulp.watch('js/*.js', ['js']);
+  gulp.watch('static/*', ['static']);
 });
