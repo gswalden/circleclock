@@ -14,14 +14,14 @@ meta(name='description', content=seo.description)
 link(rel='canonical' href=seo.url)
 
 //- Common Items
-- each name in ['title', 'description']
+each name in ['title', 'description']
   meta(property='og:' + name, content=seo[name])
   meta(name='twitter:' + name, content=seo[name])
 
 //- Open Graph Specifics
-- each name in ['url', 'type']
+each name in ['url', 'type']
   meta(property='og:' + name, content=seo[name])
 
 //- Twitter Card Specifics
-- each name in ['site', 'creator']
+each name in ['site', 'creator']
   meta(name='twitter:' + name, content=seo[name])
